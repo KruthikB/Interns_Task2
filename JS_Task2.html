@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script Task 2</title>
+</head>
+<body>
+
+    <h1>Alphabetical Order</h1>
+    <input type="text" id="stringInput" placeholder="Enter a String">
+    <button onclick="SortString()">Sort</button>
+    <p id="result"></p>
+
+    <script>
+        function SortString() {
+            var inputString = document.getElementById("stringInput").value;
+            var sortedString= inputString.split('').sort().join('');
+            document.getElementById("result").innerHTML = "Sorted String: " + sortedString;
+        }
+    </script>
+</body>
+</html>

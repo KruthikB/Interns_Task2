@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Task 4</title>
+</head>
+<body>
+    <h1>Date and Time</h1>
+    <p id="display"></p>
+    <button id="showDateButton">Show Date</button>
+    <p id="display1"></p>
+    <button id="showTimeButton">Show Time</button>
+    <p id="display2"></p>
+
+    <script>
+        // Function to display the current date
+        function showDate() {
+            var currentDate = new Date();
+            var dateText = currentDate.toDateString();
+            document.getElementById("display1").textContent = dateText;
+        }
+
+        // Function to display the current time
+        function showTime() {
+            var currentTime = new Date();
+            var timeText =  currentTime.toString();
+            document.getElementById("display2").textContent = timeText;
+        }
+
+        // Attach click event listeners to the buttons
+        document.getElementById("showDateButton").addEventListener("click", showDate);
+        document.getElementById("showTimeButton").addEventListener("click", showTime);
+    </script>
+</body>
+</html>

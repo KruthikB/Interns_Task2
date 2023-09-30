@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <p id="validationMessage1" style="color: red;"></p>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <p id="validationMessage2" style="color: red;"></p><br>
+
+        <label for="website">Website:</label>
+        <input type="url" id="website" name="website" placeholder="Your Website" required>
+        <p id="validationMessage3" style="color: red;"></p><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <p id="validationMessage4" style="color: red;"></p><br>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+
+    <script>
+        function validateForm() {
+            var nameInput = document.getElementById("name").value;
+            var emailInput = document.getElementById("email").value;
+            var websiteInput = document.getElementById("website").value;
+            var messageInput = document.getElementById("message").value;
+
+            var validationMessage1 = ""; 
+            var validationMessage2 = "";
+            var validationMessage3 = "";
+            var validationMessage4 = "";
+            if (nameInput === "") {
+                validationMessage1 += "Name is required.<br>";
+                document.getElementById("validationMessage1").innerHTML = validationMessage1;
+            }
+
+            if (emailInput === "") {
+                validationMessage2 += "Email is required.<br>";
+            } else if (!isValidEmail(emailInput)) {
+                validationMessage2 += "A valid email address is required.<br>";
+                document.getElementById("validationMessage2").innerHTML = validationMessage2;
+            }
+
+            if (websiteInput === "") {
+                validationMessage3 += "Website URL is required.<br>";
+                document.getElementById("validationMessage3").innerHTML = validationMessage3;
+            } else if (!isValidURL(websiteInput)) {
+                validationMessage3 += "A valid website URL is required.<br>";
+                document.getElementById("validationMessage3").innerHTML = validationMessage3;
+            }
+
+            if (messageInput === "") {
+                validationMessage4 += "Message is required.<br>";
+                document.getElementById("validationMessage4").innerHTML = validationMessage4;
+            }
+
+
+            if (validationMessage1 === "" || validationMessage2 === "" || validationMessage3 === "" || validationMessage4 === "" ) {
+                // Form is valid, you can submit it here
+                alert("Form submitted successfully!");
+            }
+        }
+
+        function isValidEmail(email) {
+            // You can implement a more robust email validation logic if needed
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidURL(url) {
+            // You can implement a more robust URL validation logic if needed
+            var urlRegex = /^(http(s)?:\/\/)?(www\.)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?$/;
+            return urlRegex.test(url);
+        }
+    </script>
+</body>
+</html> 
